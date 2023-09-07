@@ -13,6 +13,7 @@ import { CartComponent } from './cart/cart.component';
 import { LoginComponent } from './login/login.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AbstractSecurityCommunication, LoginService } from './services/login.service';
+import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { AbstractSecurityCommunication, LoginService } from './services/login.se
     NavbarComponent,
     FooterComponent,
     CartComponent,
-    LoginComponent
+    LoginComponent,
+    UserDashboardComponent
   ],
   imports: [
     HttpClientModule,
