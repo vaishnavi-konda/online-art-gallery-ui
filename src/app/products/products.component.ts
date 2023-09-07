@@ -1,5 +1,9 @@
 import { Component } from '@angular/core';
 import { AbstractHttpCommunication, Product } from '../HttpCommunication';
+import { CartService } from '../cart.service';
+
+
+
 
 @Component({
   selector: 'app-products',
@@ -10,7 +14,7 @@ export class ProductsComponent {
   products:Product[]=[];
   errors!:string;
 
-  constructor(private service:AbstractHttpCommunication) {
+  constructor(private service:AbstractHttpCommunication,private cartService: CartService) {
 
   }
 
@@ -25,5 +29,11 @@ export class ProductsComponent {
       },
       error: err => this.errors = err
     })
+
+    
+  }
+
+  addToCart(product: any) {
+    this.cartService.addToCart(product);
   }
 }
