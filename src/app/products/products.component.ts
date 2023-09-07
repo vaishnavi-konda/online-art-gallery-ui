@@ -33,7 +33,24 @@ export class ProductsComponent {
     
   }
 
+
+
+
   addToCart(product: any) {
     this.cartService.addToCart(product);
+  }
+
+  selectedCategory: string ='';
+  getProductsByCategory() {
+    if (this.selectedCategory === 'all') {
+      // If "All" is selected, fetch all products
+      this.getProducts();
+      
+    } else {
+      // Fetch products by the selected category
+      this.service.getProductsByCategory(this.selectedCategory).subscribe((data) => {
+        this.products = data;
+      });
+    }
   }
 }

@@ -15,6 +15,7 @@ export class Product{
 export abstract class AbstractHttpCommunication
 {
     abstract GetProducts():Observable<Product[]>;
+    abstract getProductsByCategory(category: string): Observable<any[]>
 }
 
 @Injectable({providedIn:'root'})
@@ -31,5 +32,10 @@ export class HttpCommunication extends AbstractHttpCommunication{
         var result = this.client.get<Product[]>(path, headers);
         return result;
     }
+
+    override getProductsByCategory(category: string): Observable<any[]> {
+        const url = `${this.url}/products/category/${category}`;
+        return this.client.get<any[]>(url);
+      }
 }
 //http://localhost:5099/swagger/index.html
