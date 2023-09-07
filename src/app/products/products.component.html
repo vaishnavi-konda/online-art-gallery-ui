@@ -1,0 +1,19 @@
+<a routerLink="products">All products</a>
+<br/>
+<br/>
+<div>{{products.length}}</div>
+<table>
+<tbody>
+<tr *ngFor="let p of products">
+    <td>{{p.price}}</td>
+    <td>{{p.productDescription}}</td>
+    <td>{{p.Artist}}</td>
+    <td>{{p.price}}</td>
+<td>
+<!-- <button (click)="getProducts()">Delete</button> -->
+</td>
+</tr>
+</tbody>
+</table>
+<br/>
+<span>{{errors}}</span>
