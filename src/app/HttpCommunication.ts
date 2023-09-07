@@ -3,7 +3,7 @@ import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 
 export class Product{
-    constructor(public ProductId: number, public productName:string, public artist:string,
+    constructor(public productId: number, public productName:string, public artist:string,
         public stock:number,
         public categoryId:number,
         public categoryName:string,
@@ -15,10 +15,6 @@ export class Product{
 export abstract class AbstractHttpCommunication
 {
     abstract GetProducts():Observable<Product[]>;
-    // abstract DeleteEmployee(code:number):Observable<object>;
-    // abstract AddEmployee(em:emp):Observable<object>;
-    // abstract UpdateEmployee(em:emp):Observable<object>;
-    // abstract getTokenAndAccesProtectedResources():Observable<HttpResponse<TokenAndRole>>;
 }
 
 @Injectable({providedIn:'root'})
@@ -35,13 +31,4 @@ export class HttpCommunication extends AbstractHttpCommunication{
         var result = this.client.get<Product[]>(path, headers);
         return result;
     }
-
 }
-
-// export class TokenAndRole{
-//     constructor(public token:string, public role:string) {}
-// }
-
-// export class AppUserCredentialsModel{
-//     constructor(public userName:string, public password:string){}
-// }

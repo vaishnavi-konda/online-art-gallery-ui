@@ -8,15 +8,20 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import { AbstractHttpCommunication, HttpCommunication } from './HttpCommunication';
 import { NavbarComponent } from './navbar/navbar.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { FooterComponent } from './footer/footer.component';
 import { CartComponent } from './cart/cart.component';
+import { LoginComponent } from './login/login.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { AbstractSecurityCommunication, LoginService } from './services/login.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     ProductsComponent,
     NavbarComponent,
-    CartComponent
+    FooterComponent,
+    CartComponent,
+    LoginComponent
   ],
   imports: [
     HttpClientModule,
@@ -26,35 +31,8 @@ import { CartComponent } from './cart/cart.component';
     ReactiveFormsModule,
     NgbModule
   ],
-  providers: [{provide:AbstractHttpCommunication, useClass:HttpCommunication}],
+  providers: [{provide:AbstractHttpCommunication, useClass:HttpCommunication},
+  {provide:AbstractSecurityCommunication,useClass:LoginService} ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
-
-
-
-// import { OperationsComponent } from './operations/operations.component';
-// import { SecuriyComponent } from './securiy/securiy.component';
-// import { ReactiveformComponent } from './reactiveform/reactiveform.component'; // for 2 way binding
-// import { TempformComponent } from './tempform/tempform.component';
-
-// @NgModule({
-//   declarations: [
-//     AppComponent,
-//     EmpComponent,
-//     OperationsComponent,
-//     SecuriyComponent,
-//     ReactiveformComponent,
-//     TempformComponent
-//   ],
-//   imports: [
-//     HttpClientModule,
-//     BrowserModule,
-//     AppRoutingModule,
-//     FormsModule,
-//     ReactiveFormsModule
-//   ],
-//   providers: [{provide:AbstractHttpCommunication, useClass:HttpCommunication}],
-//   bootstrap: [AppComponent]
-// })
-// export class AppModule { }
