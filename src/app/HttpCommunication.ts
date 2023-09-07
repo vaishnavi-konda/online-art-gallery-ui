@@ -32,3 +32,4 @@ export class HttpCommunication extends AbstractHttpCommunication{
         return result;
     }
 }
+//http://localhost:5099/swagger/index.html

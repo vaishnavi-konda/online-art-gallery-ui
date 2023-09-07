@@ -10,7 +10,7 @@ export abstract class AbstractSecurityCommunication
 }
 @Injectable()
 export class LoginService extends AbstractSecurityCommunication{
-  url = "http://localhost:5240"; // check this port in REST API -> Properties -> launchSettings.json
+  url = "http://localhost:5099"; // check this port in REST API -> Properties -> launchSettings.json
 
   constructor(private client:HttpClient) {super();}
   override getTokenAndAccesProtectedResources(userName:string, password:string):Observable<HttpResponse<TokenAndRole>>{
@@ -30,5 +30,5 @@ export class TokenAndRole{
 }
 
 export class AppUserCredentialsModel{
-  constructor(public userName:string, public password:string){}
+  constructor(public userName:string, public userPassword:string){}
 }
