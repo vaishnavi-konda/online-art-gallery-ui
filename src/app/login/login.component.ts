@@ -15,8 +15,8 @@ export class LoginComponent {
   message: string='';
 
   constructor(private router: Router, private service: AbstractSecurityCommunication) {}
-  getToken(userid:string, pwd:string):void{    
-    var observableObj = this.service.getTokenAndAccesProtectedResources(userid, pwd);
+  getToken(username:string, pwd:string):void{    
+    var observableObj = this.service.getTokenAndAccesProtectedResources(username, pwd);
     observableObj.subscribe({
       next:(result) => {
         var res = JSON.stringify(result.body);
@@ -24,6 +24,7 @@ export class LoginComponent {
 
         sessionStorage.setItem('token', output.token);
         sessionStorage.setItem('role', output.role);
+        sessionStorage.setItem('username', username);
 
         if(sessionStorage.getItem("role") == "User") {
           this.router.navigate(['/products']);

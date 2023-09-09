@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { AbstractHttpCommunication, Product } from '../HttpCommunication';
-import { CartService } from '../cart.service';
+import { CartService } from '../services/cart.service';
 
 
 
@@ -34,10 +34,8 @@ export class ProductsComponent {
   }
 
 
-
-
-  addToCart(product: any) {
-    this.cartService.addToCart(product);
+  addToCart(product: Product) {
+    this.cartService.addToCart(product.productId);
   }
 
   selectedCategory: string ='';
@@ -53,4 +51,6 @@ export class ProductsComponent {
       });
     }
   }
+
+
 }

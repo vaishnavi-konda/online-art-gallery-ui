@@ -59,7 +59,7 @@
                         <h5 class="card-title">{{p.productName}}</h5>
                         <p class="card-text">{{p.productDescription}}</p>
                         <p class="card-text"><strong>Artist:</strong> {{p.artist}}</p>
-                        <p class="card-text"><strong>Category:</strong> {{p.categoryName}}</p>
+                        <p class="card-text"><strong>Category:</strong> {{selectedCategory}} </p>
                         <p class="card-text"><strong>Price:</strong> ${{p.price}}</p>
                         <button class="btn btn-primary" (click)="addToCart(p)">Add to Cart</button>
                     </div>

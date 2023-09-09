@@ -1,22 +1,21 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
-@Injectable({
-  providedIn: 'root',
-})
+@Injectable()
 export class OrderService {
-  
-  url = "http://localhost:5099"; 
+  url = "http://localhost:5099";
+  constructor(private client:HttpClient) { }
 
-  constructor(private http: HttpClient) {}
+  placeOrder(username: string, cartItems: number[]){
+    const orderData = {
+      userId: username,
+      orderDetails: cartItems,
+    };
 
-  placeOrder(order: any, orderDetails: any[]): Observable<any> {
-    // Make an HTTP POST request to create the order and order details
-    const orderData = { order, orderDetails };
-    return this.http.post(`${this.url}/placeOrder`, orderData);
+    const orderurl = `${this.url}/placeOrder`;
+    const head=new HttpHeaders({'content-type':'application/json'});
+    var result=this.client.post(orderurl, orderData, {headers:head,observe:'response'});
+    return result;
   }
-
-  // Add methods to update order details as needed
 }
-
