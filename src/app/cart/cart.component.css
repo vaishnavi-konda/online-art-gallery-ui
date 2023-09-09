@@ -1,0 +1,10 @@
+.page-title {
+    color: #333;
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+body {
+    background-color: #f0f0f0; /* Set a light background color */
+    font-family: Arial, sans-serif;
+}

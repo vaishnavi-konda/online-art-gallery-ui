@@ -1,5 +1,6 @@
 import { Component, Injectable } from '@angular/core';
 import { Router } from '@angular/router';
+import { ChangeDetectorRef } from '@angular/core'
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
@@ -7,18 +8,25 @@ import { Router } from '@angular/router';
 })
 
 export class NavbarComponent {
-  isLoggedIn: string | null = "";
+  token: string | null = "";
+  isLoggedIn!:boolean;
   loginrole: string | null = "";
 
-  constructor(private router: Router,){}
+  constructor(private router: Router,private cdr: ChangeDetectorRef){}
   
   ngOnInit(){
-    this.isLoggedIn = sessionStorage.getItem('token');
+    this.token = sessionStorage.getItem('token');
     this.loginrole = sessionStorage.getItem("role");
+    if(this.token!=null){
+      this.isLoggedIn=true;
+      this.cdr.detectChanges();
+    }
+      
   }
 
   logout(){
     sessionStorage.clear();
     this.router.navigate([""]);
+    this.isLoggedIn=false;
   }
 }

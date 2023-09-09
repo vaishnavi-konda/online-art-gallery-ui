@@ -1,1 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
+
+/* Add Bootstrap styles */
+@import "~bootstrap/dist/css/bootstrap.css";
+
+/* Add ngx-bootstrap styles (optional, if needed) */
+@import "~ngx-bootstrap/datepicker/bs-datepicker.css";
+
+@import "~@fortawesome/fontawesome-free/css/all.css";
+
+

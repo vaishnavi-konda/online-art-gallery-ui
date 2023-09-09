@@ -36,7 +36,7 @@ export class CartComponent implements OnInit {
     var result= this.prodService.getListOfProducts(this.cartProductIds);
     result.subscribe({
       next:res=>{  
-        alert(JSON.stringify(res))
+        // alert(JSON.stringify(res))
         this.cartProducts = res.body ?? [];
        
       },
