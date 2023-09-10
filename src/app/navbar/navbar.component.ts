@@ -11,12 +11,14 @@ export class NavbarComponent {
   token: string | null = "";
   isLoggedIn!:boolean;
   loginrole: string | null = "";
+  username: string | null = "";
 
   constructor(private router: Router,private cdr: ChangeDetectorRef){}
   
   ngOnInit(){
     this.token = sessionStorage.getItem('token');
     this.loginrole = sessionStorage.getItem("role");
+    this.username = sessionStorage.getItem('username');
     if(this.token!=null){
       this.isLoggedIn=true;
       this.cdr.detectChanges();

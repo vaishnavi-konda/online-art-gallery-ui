@@ -1,0 +1,25 @@
+<div class="container mt-5">
+    <h1>Your Orders</h1>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Order ID</th>
+          <th>Order Date</th>
+          <th>Product Name</th>
+          <th>Quantity</th>
+          <th>Total Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let order of orders">
+          <td>{{ order.orderId }}</td>
+          <td>{{ order.orderDate }}</td>
+          <td>{{ order.productName }}</td>
+          <td>{{ order.quantity }}</td>
+          <td>{{ order.amount}}</td>
+        </tr>
+      </tbody>
+    </table>
+    <button (click)="loadOrders()">Load Orders</button>
+  </div>
+  

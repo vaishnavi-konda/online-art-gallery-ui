@@ -18,6 +18,7 @@ import { UserDashboardComponent } from './user-dashboard/user-dashboard.componen
 import { CartService } from './services/cart.service';
 import { OrderService } from './services/order.service';
 import { SignupComponent } from './signup/signup.component';
+import { OrdersComponent } from './orders/orders.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { SignupComponent } from './signup/signup.component';
     CartComponent,
     LoginComponent,
     UserDashboardComponent,
-    SignupComponent
+    SignupComponent,
+    OrdersComponent
   ],
   imports: [
     HttpClientModule,

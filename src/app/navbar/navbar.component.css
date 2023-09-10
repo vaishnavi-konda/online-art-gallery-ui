@@ -29,3 +29,11 @@
     padding: 5px 30px 5px 30px ;
   }
   
+.welcome-user {
+  font-weight: bold;
+  padding: 5px 10px;
+  border-radius: 5px;
+  /* background-color: grey; */
+  font-size: large;
+  color: white;
+}
