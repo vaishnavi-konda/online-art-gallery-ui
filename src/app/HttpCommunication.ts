@@ -41,7 +41,6 @@ export class HttpCommunication extends AbstractHttpCommunication{
     
     override getListOfProducts(ids: number[]): Observable<HttpResponse<Product[]>>{
         console.log("iam in http comm list func");
-        console.log("...", ids);
         var selectedProducts: Product[] = [];
         // for (const id of ids) {
             // const product = products.find((p) => p.productId == id);
@@ -57,4 +56,4 @@ export class HttpCommunication extends AbstractHttpCommunication{
     }
 
 }
-//http://localhost:5099/swagger/index.html
+//http://localhost:5240/swagger/index.html

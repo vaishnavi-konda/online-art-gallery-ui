@@ -13,12 +13,16 @@ import { CartService } from '../services/cart.service';
 export class ProductsComponent {
   products:Product[]=[];
   errors!:string;
+  isLoggedIn: boolean = false;
 
   constructor(private service:AbstractHttpCommunication,private cartService: CartService) {
 
   }
 
-  ngOnInit() {this.getProducts();}
+  ngOnInit() {
+    this.getProducts();
+    this.isLoggedIn = sessionStorage.getItem('token') == null ? false: true;
+  }
 
   getProducts():void {
     let observable = this.service.GetProducts();

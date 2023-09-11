@@ -20,12 +20,24 @@ export class OrderService {
     placeOrder(username: string, cartItems: number[]){
     const orderData = {
       userId: username,
-      orderDetails: cartItems,
+      cartItems: cartItems,
     };
-
+    console.log('in place order function in service');
     const orderurl = `${this.baseUrl}/placeOrder`;
     const head=new HttpHeaders({'content-type':'application/json'});
     var result=this.client.post(orderurl, orderData, {headers:head,observe:'response'});
+
+    result.subscribe({
+      next:res=>{  
+        // alert(JSON.stringify(res))
+        // this.cartProducts = res.body ?? [];
+        console.log("cart products after func call");
+        console.log(JSON.stringify(res));
+      },
+      error:e=>{
+        alert(JSON.stringify(e));
+      }
+    });
     alert("Order Placed");
     return result;
   }

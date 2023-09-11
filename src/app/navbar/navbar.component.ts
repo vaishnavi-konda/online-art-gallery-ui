@@ -28,7 +28,9 @@ export class NavbarComponent {
 
   logout(){
     sessionStorage.clear();
-    this.router.navigate([""]);
     this.isLoggedIn=false;
+    this.cdr.detectChanges();
+    this.router.navigate([""]);
+    
   }
 }
