@@ -12,7 +12,7 @@ export abstract class AbstractAdminCommunication
 @Injectable()
 export class AdminService extends AbstractAdminCommunication{
 
-  url = "http://localhost:5099"; // check this port in REST API -> Properties -> launchSettings.json
+  url = "http://localhost:5240"; // check this port in REST API -> Properties -> launchSettings.json
 
   constructor(private client:HttpClient) {super();}
 

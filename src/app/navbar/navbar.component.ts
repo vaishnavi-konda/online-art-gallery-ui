@@ -21,9 +21,20 @@ export class NavbarComponent {
     this.username = sessionStorage.getItem('username');
     if(this.token!=null){
       this.isLoggedIn=true;
-      this.cdr.detectChanges();
+    } else {
+      this.isLoggedIn = false;
     }
-      
+    this.cdr.detectChanges();
+  }
+
+  ngAfterViewChecked(){
+    this.token = sessionStorage.getItem('token');
+    if(this.token!=null){
+      this.isLoggedIn=true;
+    } else {
+      this.isLoggedIn = false;
+    }
+    this.cdr.detectChanges();
   }
 
   logout(){

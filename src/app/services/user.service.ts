@@ -18,7 +18,7 @@ export class User{
 })
 export class UserService {
 
-  private url = "http://localhost:5099"; // Replace with your API endpoint
+  private url = "http://localhost:5240"; // Replace with your API endpoint
 
   constructor(private client: HttpClient) {}
 

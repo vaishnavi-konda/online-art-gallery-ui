@@ -4,6 +4,8 @@ import { Component, OnInit } from '@angular/core';
 import { CartService } from '../services/cart.service';
 import { OrderService } from '../services/order.service';
 import { HttpCommunication, Product } from '../HttpCommunication';
+import { Router } from '@angular/router';
+import { ChangeDetectorRef } from '@angular/core';
 
 @Component({
   selector: 'app-cart',
@@ -17,12 +19,13 @@ export class CartComponent implements OnInit {
   allProducts:Product[]=[];
   errors!:string;
 
-  constructor(private cartService: CartService, private orderService: OrderService, private prodService: HttpCommunication) {}
+  constructor(private cartService: CartService, private orderService: OrderService, private prodService: HttpCommunication,private router: Router,private cdr: ChangeDetectorRef) {}
 
   ngOnInit() {
     this.cartProductIds = this.cartService.getCartItems();
     this.getListOfProducts();
     console.log(this.cartProducts);
+    this.cdr.detectChanges();
   }
   
   ngOnchanges(){
@@ -45,6 +48,20 @@ export class CartComponent implements OnInit {
       }
     });
   }
+
+  ngAfterViewChecked(){
+    this.cdr.detectChanges();
+  }
+
+  removeFromCart(id: number){
+    const index = this.cartProductIds.indexOf(id, 0);
+    if (index > -1) {
+      this.cartProductIds.splice(index, 1);
+    }
+    this.getListOfProducts();
+    this.cdr.detectChanges();
+  }
+
   }
 
 
